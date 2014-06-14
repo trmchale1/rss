@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C20B2EAE-2353-41F2-B31D-217FF56B561C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ARSSReader</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8E8E699D-9472-40C3-A901-FD49DCA6CC55</key>
+		<string>https://github.com/icanzilb/Advanced-RSS-reader</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OriginalCompleteProject/ARSSReader/ARSSReader.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8E8E699D-9472-40C3-A901-FD49DCA6CC55</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/icanzilb/Advanced-RSS-reader</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8E8E699D-9472-40C3-A901-FD49DCA6CC55</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8E8E699D-9472-40C3-A901-FD49DCA6CC55</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Advanced-RSS-reader</string>
+		</dict>
+	</array>
+</dict>
+</plist>
