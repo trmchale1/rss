@@ -100,7 +100,7 @@
                         _nytObjects = nytResults;
 
                         [_objects addObjectsFromArray:nytResults];
-                        NSLog(@"a = %@", _objects);
+                        
                         
                         //     NSLog(@"x = %@", _objects);
                       //  [_objects insertObjects:nytResults atIndexes:indexSet];   THIS MIGHT BE USEFUL
@@ -121,7 +121,6 @@
                     });
                 }];
 
-    
 }
 
 #pragma mark - Table View
@@ -141,7 +140,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+   // NSLog(@"a = %@", _objects);
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     RSSItem *object = _objects[indexPath.row];
