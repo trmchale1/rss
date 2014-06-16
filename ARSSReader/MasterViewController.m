@@ -15,8 +15,10 @@
 {
     NSMutableArray *_objects;
     NSMutableArray *_nytObjects;
+    NSMutableArray *_hackerObjects;
     NSURL* feedURL;
     NSURL* twoURL;
+    NSURL* threeURL;
     UIRefreshControl* refreshControl;
 }
 @end
@@ -31,6 +33,7 @@
     self.title = @"Tim's RSS Reader";
     feedURL = [NSURL URLWithString:@"http://images.apple.com/main/rss/hotnews/hotnews.rss"];
     twoURL = [NSURL URLWithString:@"http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"];
+    threeURL = [NSURL URLWithString:@"http://www.politico.com/click/rss/xml/politicians.xml"];
     
     //add refresh control to the table view
     refreshControl = [[UIRefreshControl alloc] init];
@@ -99,7 +102,7 @@
                      //   NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(2, 25)];
                         _nytObjects = nytResults;
 
-                        [_objects addObjectsFromArray:nytResults];
+                        [_objects addObjectsFromArray:_nytObjects];
                         
                         
                         //     NSLog(@"x = %@", _objects);
@@ -112,7 +115,7 @@
 //                        [indexes addIndex:2];
 //                        [indexes addIndex:3];
 //                        
-//                        [_objects removeObjectsInRange:(NSRange){6,14}];
+ //                       [_objects removeObjectsInRange:(NSRange){0,25}];
 //                        [_objects removeObjectsAtIndexes:indexes];
                         [self.tableView reloadData];
                         
@@ -120,6 +123,45 @@
                         [refreshControl endRefreshing];
                     });
                 }];
+    
+ 
+    // NEEDS TO GET RID OF HTML TAGS
+    RSSLoader* rssThree = [[RSSLoader alloc] init];
+    [rssThree fetchRssWithURL:threeURL
+                   complete:^(NSString *Hackertitle, NSArray *hackerResults) {
+                       
+                       //completed fetching the RSS
+                       dispatch_async(dispatch_get_main_queue(), ^{
+                           
+                           //UI code on the main queue
+                           //    [(TableHeaderView*)self.tableView.tableHeaderView setText:title];
+                           //   NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(2, 25)];
+                           _hackerObjects = hackerResults;
+                           NSLog(@"x = %lu", (unsigned long)_hackerObjects.count);
+                           NSLog(@"hackerObjects = %@", _hackerObjects);
+                           [_objects addObjectsFromArray:_hackerObjects];
+                           
+                           
+                           //     NSLog(@"x = %@", _objects);
+                           //  [_objects insertObjects:nytResults atIndexes:indexSet];   THIS MIGHT BE USEFUL
+                           //   NSLog(@"_objects = %@", _objects);
+                           //    NSLog(@"_objects = %@", _nytObjects);
+                           //                        NSMutableIndexSet *indexes = [NSMutableIndexSet indexSetWithIndex:1];
+                           //                        [indexes addIndex:0];
+                           //                        [indexes addIndex:1];
+                           //                        [indexes addIndex:2];
+                           //                        [indexes addIndex:3];
+                           //
+//                                                   [_hackerObjects removeObjectsInRange:(NSRange){0,25}];
+//                           [_objects addObjectsFromArray:_hackerObjects];
+//                           NSLog(@"_objects = %@", _objects);
+                           //                        [_objects removeObjectsAtIndexes:indexes];
+                           [self.tableView reloadData];
+                           
+                           // Stop refresh control
+                           [refreshControl endRefreshing];
+                       });
+                   }];
 
 }
 
